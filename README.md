@@ -42,8 +42,6 @@ https://data.gov.uk/dataset/6efe5505-941f-45bf-b576-4c1e09b579a1/road-traffic-ac
 
 **_I. Data preprocessing_**:
 
-![data preprocessing](https://user-images.githubusercontent.com/43052624/48352313-66a88280-e6c7-11e8-9ca1-a89f5b5dca29.png)
-
 *  Merging datasets
 
 *  Dropping columns containing references (Reference number, Grid Ref: Easting, Grid Ref: Northing) and correlated variables (Lighting conditions, Accident Date).
@@ -89,25 +87,10 @@ To avoid overfitting, we used K-fold cross-validation method with ten splits.
 
 - The graph below shows the depth that returns the best accuracy based on the number of features that we have in the dataset.
 
-![kfold decision tree](https://user-images.githubusercontent.com/43052624/48170888-87be4b80-e334-11e8-8302-7c8437f7903f.png)
-
 - K-fold best mean accuracy is 73.95% (standard deviation 2.64%) for a decision tree depth equal to six.
 
-![decision tree](https://user-images.githubusercontent.com/43052624/48113500-116b0c00-e296-11e8-8a0f-52ce61ae41cc.png)
+- The three most important features in the decision tree model are: Casualty Class_Pedestrian, Road Surface_Dry, Road Surface_Wet or Damp. 
 
-- The three most important features in the decision tree model are: Casualty Class_Pedestrian, Road Surface_Dry, Road Surface_Wet or Damp.
-
-**Random Forest**
-
-- The mean accuracy is equal to 67.15% (standard deviation 3.98%). 
-
-**Neural Network**
-
-- Using preprocessed standarized data followed by PCA.
-
-- Two hidden layers each containing 24 nodes.
-  
-- The mean accuracy is equal to 72.66% (standard deviation 2.95%).
 
 **KNN**
 
@@ -115,30 +98,10 @@ To avoid overfitting, we used K-fold cross-validation method with ten splits.
 
 - The graph below shows the number of neighbors that returns the best accuracy based on the number of features that we have in the dataset.
 
-![kfold knn](https://user-images.githubusercontent.com/43052624/48171438-dcfb5c80-e336-11e8-82e7-7f259129e643.png)
-
 - K-fold best mean accuracy is 71.37% (standard deviation 2.77%) for number of neighbors equal to five.
-
-**Logistic Regression**
-
-_using PCA_
-
-- The mean accuracy is equal to 53.12% (standard deviation 2.32%)
-
-_without PCA_
-
-- Dropping reference variables.
-
-- Dropping 'Weather Condition' variable due to its high correlation with 'Road Surface'.
-
-- The mean accuracy is equal to 54.09% (standard deviation 3.03%).
-
-![logistic regression](https://user-images.githubusercontent.com/43052624/48206324-1cfb2780-e3a9-11e8-802f-514365f7be4f.png)
 
 
 **CONCLUSION**: 
-
-![sans titre](https://user-images.githubusercontent.com/43052624/48349868-71abe480-e6c0-11e8-8f7b-f9a67c918797.png)
 
 The best model is the decision tree with a mean accuracy of 73.95%. 
 
